@@ -1,0 +1,23 @@
+@model BookStoreApp.Models.Dealer
+
+@{
+    ViewData["Title"] = "Add Dealer";
+}
+
+<h2>Add Dealer</h2>
+
+<form asp-controller="Dealer" asp-action="AddDealer" method="post">
+    <div class="form-group">
+        <label for="DealerName">Dealer Name</label>
+        <input type="text" class="form-control" id="DealerName" name="DealerName" placeholder="Enter Dealer name" required>
+    </div>
+    <div class="form-group">
+        <label for="Location">Location</label>
+        <input type="text" class="form-control" id="Location" name="Location" placeholder="Enter Location" required>
+    </div>
+    <div class="form-group">
+        <label for="ContactNumber">ContactNumber</label>
+        <input type="text" class="form-control" id="ContactNumber" name="ContactNumber" placeholder="Enter ContactNumber" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Dealer</button>
+</form>

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<BookStoreApp.Models.Fruit>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@if (Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Fruit Id</th>
+                <th>Fruit Name</th>
+                <th>Description</th>
+                <th>Color</th>
+                <th>Price</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Fruit fruit in Model)
+            {
+                <tr>
+                    <td>@fruit.FruitID</td>
+                    <td>@fruit.FruitName</td>
+                    <td>@fruit.Description</td>
+                    <td>@fruit.Color</td>
+                    <td>@fruit.Price</td>
+                    <td>
+                        <form asp-action="Delete" asp-route-id="@fruit.FruitID" method="post">
+                            <button type="submit" class="btn btn-sm btn-danger">
+                                Delete
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No Fruits found.</p>
+}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">

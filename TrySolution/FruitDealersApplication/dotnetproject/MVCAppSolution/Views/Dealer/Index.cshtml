@@ -1,0 +1,43 @@
+﻿@model IEnumerable<BookStoreApp.Models.Dealer>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@if (Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Dealer Id</th>
+                <th>Dealer Name</th>
+                <th>Location</th>
+                <th>Contact Number</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Dealer dealer in Model)
+            {
+                <tr>
+                    <td>@dealer.DealerID</td>
+                    <td>@dealer.DealerName</td>
+                    <td>@dealer.Location</td>
+                    <td>@dealer.ContactNumber</td>
+                    <td>
+                        <form asp-action="Delete" asp-route-id="@dealer.DealerID" method="post">
+                            <button type="submit" class="btn btn-sm btn-danger">
+                                Delete
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No Dealers found.</p>
+}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
